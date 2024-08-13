@@ -58,7 +58,7 @@ pipeline {
                         repository: 'javaappl/',
                         credentialsId: 'nexuslogin',
                         artifacts: [
-                            [artifactId: javaappl'',
+                            [artifactId: 'javaappl',
                             classifier: '',
                             file: 'target/practise1.war',
                             type: 'war']
