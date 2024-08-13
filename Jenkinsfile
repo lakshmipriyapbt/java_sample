@@ -13,7 +13,7 @@ pipeline {
                  post {
                 success {
                     echo 'Archiving'
-                    archiveArtifacts artifacts: '**/*.war'
+                    archiveArtifacts artifacts: '**/target/*.war'
                 }
             }
                
@@ -36,10 +36,10 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonarserver') {
                     sh """${scannerHome}/bin/sonar-scanner \
-                    -Dsonar.projectKey= \
-                    -Dsonar.projectName= \
+                    -Dsonar.projectKey= javaappl\
+                    -Dsonar.projectName= javaappl\
                     -Dsonar.projectVersion=1.0 \
-                    -Dsonar.sources=employee/src \
+                    -Dsonar.sources=src \
                     
                     -Dsonar.sourceEncoding=UTF-8 \
                     """
