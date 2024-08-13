@@ -52,10 +52,10 @@ pipeline {
                     nexusArtifactUploader(
                         nexusVersion: 'nexus2',
                         protocol: 'http',
-                        nexusUrl: '54.162.119.206:8081/',
+                        nexusUrl: '54.162.119.206:8081',
                         
                         version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
-                        repository: 'javaappl/',
+                        repository: 'javaappl',
                         credentialsId: 'nexuslogin',
                         artifacts: [
                             [artifactId: 'javaappl',
