@@ -1,34 +1,46 @@
 pipeline {
     agent any 
     tools {
-        maven 'maven'
+        maven 'mvn'
     }
+         
     stages {
-        stage('Compile and Clean') { 
+        stage('Build') { 
             steps {
 
-                sh "mvn clean compile"
+                sh 'mvn clean build'
             }
         }
         stage('Test') { 
             steps {
-                sh "mvn test site"
+                sh 'mvn test site'
             }
+        }
+            stage('package') {
+                steps{
+                sh 'mvn assemble'
+            }
+            }
+                stage('Sonarqube Analysis') {
             
-             post {
-                always {
-                    junit allowEmptyResults: true, testResults: 'target/*.xml'   
-                }
-            }     
-        }
-
-        stage('deploy') { 
+            environment {
+                scannerHome = tool 'scanner'
+            }
             steps {
-                sh "mvn package"
+                withSonarQubeEnv('sonarserver') {
+                    sh """${scannerHome}/bin/sonar-scanner \
+                    -Dsonar.projectKey= \
+                    -Dsonar.projectName= \
+                    -Dsonar.projectVersion=1.0 \
+                    -Dsonar.sources=employee/src \
+                    
+                    -Dsonar.sourceEncoding=UTF-8 \
+                    """
+                }
             }
         }
-
-      }
+            }     
+            
     }
 
 
