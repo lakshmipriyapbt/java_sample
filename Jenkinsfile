@@ -41,8 +41,7 @@ pipeline {
                     -Dsonar.projectVersion=1.0 \
                     -Dsonar.sources=src \
                     
-                    -Dsonar.sourceEncoding=UTF-8 \
-                    """
+                      """
                 }
             }
         }
