@@ -57,10 +57,10 @@ pipeline {
                         version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
                         repository: 'javaappl',
                         credentialsId: 'nexuslogin',
-                        
-                          artifactId: 'javaappl',
+                        artifacts: [
+                          [artifactId: 'javaappl',
                             classifier: '',
-                        files: [[
+                        
                             file: 'practise1.war',
                             type: 'war']
                         ]
