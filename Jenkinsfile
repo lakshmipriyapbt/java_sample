@@ -9,8 +9,14 @@ pipeline {
             steps {
 
                sh 'mvn clean install -DskipTests'
-
             }
+                 post {
+                success {
+                    echo 'Archiving'
+                    archiveArtifacts artifacts: '**/*.war'
+                }
+            }
+               
         }
         stage('Test') { 
             steps {
