@@ -8,7 +8,7 @@ pipeline {
         stage('Build') { 
             steps {
 
-               sh 'mvn clean install -DskipTests'
+               sh 'mvn -s settings.xml -DskipTests install'
             }
                  post {
                 success {
@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                sh 'mvn test site'
+                sh 'mvn -s setting.xmltest'
             }
         }
             stage('package') {
@@ -52,15 +52,16 @@ pipeline {
                     nexusArtifactUploader(
                         nexusVersion: 'nexus2',
                         protocol: 'http',
-                        nexusUrl: '54.162.119.206:8081',
+                        nexusUrl: 'http://54.162.119.206:8081',
                         
                         version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
                         repository: 'javaappl',
                         credentialsId: 'nexuslogin',
-                        artifacts: [
-                            [artifactId: 'javaappl',
+                        
+                          artifactId: 'javaappl',
                             classifier: '',
-                            file: 'target/practise1.war',
+                        files: [[
+                            file: 'practise1.war',
                             type: 'war']
                         ]
                     )
