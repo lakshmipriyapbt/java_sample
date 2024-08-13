@@ -52,7 +52,7 @@ pipeline {
                     nexusArtifactUploader(
                         nexusVersion: 'nexus2',                
                         protocol: 'http',
-                        nexusUrl: 'http://54.162.119.206:8081',
+                        nexusUrl: '54.162.119.206:8081',
                         
                         
                         version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
