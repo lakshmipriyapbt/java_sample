@@ -61,7 +61,7 @@ pipeline {
                           [artifactId: 'javaappl',
                             classifier: '',
                         
-                            file: 'practise1.war',
+                            file: 'target/practise1.war',
                             type: 'war']
                         ]
                     )
