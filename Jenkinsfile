@@ -51,7 +51,9 @@ pipeline {
                 script {
                     nexusArtifactUploader(
                         nexusVersion: 'nexus2',                
-                        nexusUrl: 'http://54.162.119.206:8081/repository/javaappl/',
+                        protocol: 'http',
+                        nexusUrl: 'http://54.162.119.206:8081',
+                        
                         
                         version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
                         repository: 'javaappl',
