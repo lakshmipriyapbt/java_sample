@@ -8,7 +8,7 @@ pipeline {
         stage('Build') { 
             steps {
 
-               sh 'mvn -s settings.xml -DskipTests install'
+               sh 'mvn clean install -DskipTests'
             }
                  post {
                 success {
@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                sh 'mvn -s setting.xmltest'
+                sh 'mvn test'
             }
         }
             stage('package') {
