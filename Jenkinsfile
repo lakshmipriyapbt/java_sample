@@ -45,9 +45,30 @@ pipeline {
                 }
             }
         }
+        stage('Upload Artifact') {
+            
+             steps {
+                script {
+                    nexusArtifactUploader(
+                        nexusVersion: 'nexus2',
+                        protocol: 'http',
+                        nexusUrl: '54.162.119.206:8081/',
+                        
+                        version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
+                        repository: 'javaappl/',
+                        credentialsId: 'nexuslogin',
+                        artifacts: [
+                            [artifactId: javaappl'',
+                            classifier: '',
+                            file: 'target/practise1.war',
+                            type: 'war']
+                        ]
+                    )
+                }
             }     
             
     }
-
+    }
+}
 
 
