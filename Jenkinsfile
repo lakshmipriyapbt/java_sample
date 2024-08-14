@@ -50,7 +50,7 @@ pipeline {
              steps {
                 script {
                     nexusArtifactUploader(
-                        nexusVersion: 'nexus2',                
+                        nexusVersion: 'nexus3',                
                         protocol: 'http',
                         nexusUrl: '3.87.43.198:8081',
                         
