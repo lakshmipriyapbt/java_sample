@@ -52,7 +52,7 @@ pipeline {
                     nexusArtifactUploader(
                         nexusVersion: 'nexus3',                
                     
-                        nexusUrl: 'https://3.80.203.32:8081',
+                        nexusUrl: 'http://3.80.203.32:8081/repository/javaappl/',
                         
                         
                         version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
