@@ -51,8 +51,8 @@ pipeline {
                 script {
                     nexusArtifactUploader(
                         nexusVersion: 'nexus3',                
-                        protocol: 'https',
-                        nexusUrl: '3.87.43.198:8081',
+                    
+                        nexusUrl: 'https://3.80.203.32:8081',
                         
                         
                         version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
