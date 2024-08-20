@@ -50,9 +50,10 @@ pipeline {
              steps {
                 script {
                     nexusArtifactUploader(
-                        nexusVersion: 'nexus3',                
+                        nexusVersion: 'nexus3',  
+                        protocol: 'http',
                     
-                        nexusUrl: 'http://3.80.203.32:8081/repository/javaappl/',
+                        nexusUrl: '3.80.203.32:8081',
                         
                         
                         version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
