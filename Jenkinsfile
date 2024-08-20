@@ -57,6 +57,7 @@ pipeline {
                         
                         
                         version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
+                        groupId: 'com.demo1.www',
                         repository: 'javaappl',
                         credentialsId: 'nexuslogin',
                         artifacts: [
